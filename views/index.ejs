@@ -1,0 +1,56 @@
+<%- include("./partials/header") %>
+
+<style>
+    
+    #f1{
+        
+        margin: auto;
+        height:88vh;
+        background-color: rgb(48, 13, 50);
+    }
+    #inp1{
+        margin-top:50px;
+        margin-left: 425px;
+        height: 20px;
+        width: 400px;
+    
+    }
+    #btn{
+        height: 22px;
+        width: 80px;
+        color: red;
+    }
+    #li{
+
+        display: inline-block;
+        width:26vw;
+        margin-top: 5px;
+        margin-left:500px;
+        list-style-type: lower-latin;
+        color:yellow
+    }
+    #dlt{
+        
+        margin-top:5px;
+        height: 22px;
+        width: 60px;
+        color: red;
+
+
+
+        
+    }
+</style>
+<div id="f1">
+    <form action="/add/todo" method="POST" id="f">
+        <input type="text" name="todo" class="" id="inp1">
+        <input type="submit" value="Add Plan" id="btn"> 
+    </form>
+    <%  todo.forEach(todos=>{ %>
+        <li id="li"><%=todos.todo %></li>
+        <a href="/delete/todo/<%= todos._id %>" id="link"><button  id="dlt">Remove</button></a>
+    <%})   %>
+</div>
+
+
+<%- include("./partials/footer") %>
